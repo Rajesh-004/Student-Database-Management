@@ -29,3 +29,4 @@ Thumbs.db
 # Logs and local configs
 *.log
 local.properties
+/build/

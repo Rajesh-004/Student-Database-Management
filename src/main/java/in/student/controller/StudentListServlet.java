@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import in.student.model.Student;
 import in.student.util.DatabaseUtil;
@@ -16,59 +17,40 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class StudentListServlet
- */
 @WebServlet("/listStudents")
 public class StudentListServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public StudentListServlet() {
-		super();
-		// TODO Auto-generated constructor stubSSS
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		java.util.List<Student> studentList = new ArrayList<>();
+        List<Student> studentList = new ArrayList<>();
+        String sql = "SELECT * FROM students";
 
-		String sql = "select * from students";
+        try (Connection conn = DatabaseUtil.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
-		try (Connection conn = DatabaseUtil.getConnection();
-				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery(sql);) {
-			while (rs.next()) {
-				studentList.add(new Student(rs.getInt("id"), rs.getString("name"), rs.getString("email"),
-						rs.getString("course")));
-			}
+            while (rs.next()) {
+                Student student = new Student(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("email"),
+                    rs.getString("course")
+                );
+                studentList.add(student);
+            }
 
-		} catch (SQLException e) {
-			throw new ServletException("Database error while fetching Students", e);
-		}
+        } catch (SQLException e) {
+            throw new ServletException("Error fetching student records", e);
+        }
 
-		request.setAttribute("studentList", studentList);
+        request.setAttribute("studentList", studentList);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("student-list.jsp");
+        // Forward to JSP inside WEB-INF so it cannot be accessed directly
+        RequestDispatcher dispatcher = request.getRequestDispatcher("student-list.jsp");
+        dispatcher.forward(request, response);
+    }
 
-		dispatcher.forward(request, response);
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+   
 }
