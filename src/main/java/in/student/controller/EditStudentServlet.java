@@ -5,6 +5,7 @@ import java.sql.*;
 
 import in.student.model.Student;
 import in.student.util.DatabaseUtil;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -52,6 +53,13 @@ public class EditStudentServlet extends HttpServlet {
 		}catch (SQLException e) {
 		  throw new ServletException("Database error during while fetching students for edit",e);
 		}
+		
+		
+		request.setAttribute("student", student);
+		
+		RequestDispatcher dispatcher=request.getRequestDispatcher("student-form.jsp");
+		
+		dispatcher.forward(request, response);
 	}
 
 	/**
