@@ -10,8 +10,8 @@
 <body>
 	<div class="container">
 	
-	<c:if test="${student !=null}">
-	<form action="update"  method="post">
+	<c:if test="${student != null}">
+	<form action="update" method="post">
 	<h1>Edit Student</h1>
 	<input type="hidden" name="id" value="<c:out value='${student.id}'/>"/>
 	
@@ -19,7 +19,8 @@
 	</c:if>
 	
 	<c:if test="${student == null}">
-	<form action="add" method="post"></form>
+	
+	<form action="addstudent" method="post">
 	<h1>Add New Student</h1>
 	
 	
@@ -27,7 +28,7 @@
 		<h1>Add New Student</h1>
 		<hr>
 		
-
+		
 			<label for="name">Name</label><br>  
 			<input type="text" name="name" value="<c:out value='${student.name}'/>" required size="50"/><br> 
 			<label for="email">Email</label><br>
@@ -38,9 +39,15 @@
 			<button type="submit">Save Student</button>
 			
 			</form>
-		<br> <a href="listStudents">Back to Student</a>
+		<br> 
+		<a href="listStudents">Back to Student</a>
 
 	</div>
 
 </body>
 </html>
+
+
+
+
+

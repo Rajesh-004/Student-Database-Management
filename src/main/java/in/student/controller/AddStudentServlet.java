@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AddStudentServlet
  */
-@WebServlet("/add")
+@WebServlet("/addstudent")
 public class AddStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -52,10 +52,12 @@ public class AddStudentServlet extends HttpServlet {
 			stmt.setString(2, email);
 			stmt.setString(3, course);
 			
+			
+			System.out.println("Saving Student" + name + email + course );
 			stmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			throw new jakarta.servlet.ServletException("Database error during student data addition ",e);
+			throw new ServletException("Database error during student data addition ",e);
 			
 			}
 		response.sendRedirect("listStudents");
