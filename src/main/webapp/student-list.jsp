@@ -5,16 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Student Records</title>
+<title>Student Records</title> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+rel="stylesheet">
 </head>
 <body>
-	<div class="container">
+	<div class="container mt-4">
+		<div class="d-flex justify-content-between align-items-center mb-3">
+		
 		<h1>Student Record Manager</h1>
-		<a href="student-form.jsp">Add New Student</a>
-		<hr>
-
-		<table border="1" width="100%">
-			<thead>
+		<a href="student-form.jsp" class="btn btn-primary">Add New Student</a>
+		</div>
+			
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
@@ -32,8 +36,9 @@
 								<td><c:out value="${student.name}" /></td>
 								<td><c:out value="${student.email}" /></td>
 								<td><c:out value="${student.course}" /></td>
-								<td><a href="edit?id=${student.id}">Edit</a> &nbsp; <a
-									href="delete?id=${student.id}" onclick="return confirm ('Are you sure want to delete this record?')">Delete</a></td>
+								<td><a href="edit?id=${student.id}" class ="btn btn-warning btn-sm">Edit</a> &nbsp; <a
+									href="delete?id=${student.id}"
+									onclick="return confirm ('Are you sure want to delete this record?')" class="btn btn-danger btn-sm">Delete</a></td>
 							</tr>
 						</c:forEach>
 					</c:when>
@@ -46,5 +51,6 @@
 			</tbody>
 		</table>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
