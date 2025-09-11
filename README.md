@@ -1,9 +1,9 @@
 #  Student Record Manager
 
 ##  Project Description
-The *Student Record Manager* is a dynamic, database-driven web application built using *Java Servlets, JSP, and JDBC*.  
-It allows administrators to manage student records effectively by performing full *CRUD operations* (Create, Read, Update, Delete).  
-This project follows *MVC architecture* and is deployed on *Apache Tomcat*.
+The *Student Record Manager* is a dynamic, database-driven web application built using *```Java Servlets```, ```JSP```, and ```JDBC```*.  
+It allows administrators to manage student records effectively by performing full *```CRUD``` operations* (Create, Read, Update, Delete).  
+This project follows *```MVC architecture```* and is deployed on *Apache Tomcat*.
 
 ##  Features
 - *Create*  : Add new students to the database  
@@ -21,15 +21,15 @@ This project follows *MVC architecture* and is deployed on *Apache Tomcat*.
 ##  Project Modules
 ### *Module 1*: Setting Up a Full-Stack Java Web Project  
 - Configure Tomcat server in Eclipse  
-- Setup JDBC driver & MySQL connection  
+- Setup ```JDBC``` driver & ```MySQL``` connection  
 
 ### *Module 2*: Fetching and Displaying Database Records with JSP  
 - Create DAO classes for database operations  
-- Fetch student records and display them in JSP  
+- Fetch student records and display them in ```JSP```  
 
 ### *Module 3*: Building Forms and Inserting Data with a Servlet  
-- Create HTML/JSP forms to collect student details  
-- Use Servlets with JDBC to insert data into MySQL  
+- Create ```HTML/JSP``` forms to collect student details  
+- Use ```Servlets``` with ```JDBC``` to insert data into ```MySQL```  
 
 ### *Module 4*: Creating a Two-Step Process for Editing Data  
 - Select a student by ID  
@@ -41,22 +41,12 @@ This project follows *MVC architecture* and is deployed on *Apache Tomcat*.
 - Ensure safe record removal from the database  
 
 ### *Module 6*: Styling a Web Application with Bootstrap 5  
-- Apply modern, responsive CSS framework  
+- Apply modern, responsive ```CSS``` framework  
 - Improve UI with tables, forms, and buttons  
 
 ##  Learning Outcomes
-- Hands-on experience with *Java Servlets, JSP, JSTL, JDBC*  
-- Implementing *CRUD operations with MySQL*  
-- Understanding *MVC design pattern*  
+- Hands-on experience with *```Java Servlets```, ```JSP```, ```JSTL```, ```JDBC```*  
+- Implementing *```CRUD``` operations with ```MySQL```*  
+- Understanding *```MVC``` design pattern*  
 - Deployment on *Apache Tomcat server*  
-- Building responsive UI with *Bootstrap 5*  
-
-##  Future Enhancements
-- Add *Admin Authentication (Login/Logout)*  
-- Implement *Search and Filter* functionality  
-- Export student data to *Excel / PDF*  
-- REST API integration for external applications  
-
----
-
- This project is an excellent practice for *Java Full Stack Development* and can be used as a *mini-project or academic submission*.
+- Building responsive UI with *```Bootstrap 5```*  
